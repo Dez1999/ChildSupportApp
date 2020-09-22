@@ -5,6 +5,12 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 //Import Classes for mySQL database
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,18 +18,13 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 public class Main2Activity extends AppCompatActivity {
 
     /**
      * Connection variables for server and database
      */
+    //To change where the server is hosted, change the line below to the appropriate host/server.
     private static final String url = "jdbc:mysql://127.0.0.1:3306/child_support_db";
     private static final String user = "child_support";
     private static final String pass = "ys6BCBDgf9Hv2aap";
@@ -91,7 +92,7 @@ public class Main2Activity extends AppCompatActivity {
                 **/
 
                 //Calculates the Child Support
-                Test_Input_Values();
+                testDB();
             }
         });    //On click perform calc_Child_Support
 
@@ -130,8 +131,35 @@ public class Main2Activity extends AppCompatActivity {
      * Method: This method calculates the child Support that one parent owes
      */
     public void calculate_Child_Support(){
-        
 
+    }
+
+    /**
+     * Method: This Method is used to test the functionality of the database
+     */
+    public void testDB(){
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, pass);
+
+            String result = "Database connection success\n";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from child_support_on");
+            ResultSetMetaData rand = rs.getMetaData();
+
+            //while (rs.next()) {
+                result += rand.getColumnName(1) + ":" + rs.getInt(1) + "\n";
+                result += rand.getColumnName(2) + ":" + rs.getInt(2) + "\n";
+            //}
+
+            Result_value.setText(result);
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            Result_value.setText(e.toString());
+        }
 
     }
 
