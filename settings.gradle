@@ -1,0 +1,2 @@
+include ':app', ':lib__', ':mysql-connector-java-8.0.21'
+rootProject.name='MyChild_Support4'
