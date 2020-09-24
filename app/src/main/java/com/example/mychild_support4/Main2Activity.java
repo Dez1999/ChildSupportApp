@@ -108,10 +108,7 @@ public class Main2Activity extends AppCompatActivity {
      * Test Method: Used to test the input values for the textfields and displays the results
      */
     public void Test_Input_Values(){
-        Result_value.setText("Child Support Amount: " + "Parent 1: " + parent1_salary + ". Parent 2: " + parent2_salary
-                + ". Parent1: " + FChild_parent1 + ", " + NFChild_parent1 + ". Parent1: " + FChild_parent2 + ", "
-                + NFChild_parent2);        //Displays Child Support Amount
-
+        Result_value.setText("Child Support Amount: " + "Parent 1: " + parent1_salary);        //Displays Child Support Amount
     }
 
     /**
