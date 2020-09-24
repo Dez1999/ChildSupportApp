@@ -84,11 +84,6 @@ public class Main2Activity extends AppCompatActivity {
                 //Test: view the values in a Toast view
                 /**
                 showToast(String.valueOf(parent1_salary));
-                showToast(String.valueOf(parent2_salary));
-                showToast(String.valueOf(FChild_parent1));
-                showToast(String.valueOf(FChild_parent2));
-                showToast(String.valueOf(NFChild_parent1));
-                showToast(String.valueOf(NFChild_parent2));
                 **/
 
                 //Calculates the Child Support
